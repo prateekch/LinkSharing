@@ -33,7 +33,7 @@ class UserSpec extends Specification {
     void "test for toString of User"() {
         given:
         User user = new User(firstName: "prateek", lastName: "chaudhary", email: "prateek@gmail.com",
-                password: "12345", userName: "prateek12" +
+                password: "12345", username: "prateek12" +
                 "")
         when:
         user.toString()
@@ -41,6 +41,18 @@ class UserSpec extends Specification {
         then:
         "prateek12"
     }
+   /* void "testUserPasswordConstraints"() {
+
+        User user = new User(firstName: "prateek", lastName: "chaudhary", email: "prateek@gmail.com",
+                password: "12345",confirmpassword: "12345" ,username: "prateek12")
+
+       user.password="abcde"
+        user.confirmpassword="xyz"
+        user.validate()
+        assertNotNull(user.errors["confirmPassword"])
+// Validation message for password and confirmPassword field do not match
+
+    }*/
 
 
     }

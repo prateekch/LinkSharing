@@ -19,4 +19,14 @@ class LoginControllerSpec extends Specification {
         expect:"fix me"
             true == false
     }
+    /*void "loginHandlerTestCase"(){
+       given:
+        User user = User.findByUsernameAndPassword("prateek12", "12345")
+        when:
+          controller.loginHandler()
+        then:
+        session.user==user
+
+    }*/
+
 }

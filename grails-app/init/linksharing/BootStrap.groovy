@@ -47,8 +47,8 @@ class BootStrap {
     }
 
     def createUsers() {
-        User admin = new User(email: "prateek123@gmail.com", username:"prateek12",firstname: "prateek", lastname: "chaudhary", password: "12345", admin: true, active: true)
-        User user = new User(email: "sumit@gmail.com", username: "sumit12", firstname: "sumit", lastname: "sharma", password: "12345", admin: false, active: true)
+        User admin = new User(email: "prateek123@gmail.com", username:"prateek12",firstname: "prateek", lastname: "chaudhary", password: "12345",confirmpassword: "12345", admin: true, active: true)
+        User user = new User(email: "sumit@gmail.com", username: "sumit12", firstname: "sumit", lastname: "sharma", password: "12345",confirmpassword: "12345", admin: false, active: true)
 
         if (admin.save(failOnError: true, flush: true)) {
             log.info "Admin saved successfully"

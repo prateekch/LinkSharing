@@ -1,5 +1,7 @@
 package linksharing
 
+import org.springframework.stereotype.Controller
+
 class UrlMappings {
 
     static mappings = {
@@ -9,6 +11,8 @@ class UrlMappings {
             }
         }
 
+/*
+
         "/test"( controller: "Test" , action:"noAction")
 
         "/helloTest"(redirect: '/test.test')
@@ -16,8 +20,9 @@ class UrlMappings {
         "/redirectTest"(redirect: '/test')
 
         "/errorTest"(redirect:[controller:"test",action: 'save'])
+*/
 
-        "/"(view:"/index")
+        "/"(controller: "login" )
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

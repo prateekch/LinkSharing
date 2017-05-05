@@ -15,8 +15,16 @@ class UserControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+
+    void "testforIndex"(){
+        given:
+        User user =new User(firstName: "prateek", lastName: "chaudhary", email: "prateek@gmail.com",
+                password: "12345", username: "prateek12")
+
+        session.user=user
+        when:
+        controller.index()
+        then:
+        response.text=="prateek12"
     }
 }

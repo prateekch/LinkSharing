@@ -1,6 +1,4 @@
 package com.ttn.linksharing
-
-
 class User {
 
     String email
@@ -14,8 +12,9 @@ class User {
     boolean active
     Date dateCreated
     Date lastUpdated
+    String confirmpassword
 
-
+    static transients = ['confirmpassword']
 
     static constraints = {
     email(unique: true,email: true,nullable: false,blank: false)
@@ -25,7 +24,15 @@ class User {
         photo(nullable: true)
         admin(nullable:true)
         active(nullable:true)
+
+        confirmpassword(nullable: true,blank: true ,validator: {confirmpassword,User user ->
+            if ((!user.id &&confirmpassword && confirmpassword != user.password )) {
+                return 'passwordMismatch'
+            }
+            return true
+        })
     }
+
     static hasMany = [topics :Topic,subscriptions :Subscription ,
                       readingItems:ReadingItem,resources :Resource]
 
